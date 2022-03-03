@@ -20,9 +20,5 @@ const books = [
 ];
 
 function message() {
-  console.log('Hellllllooooooooo');
+  console.log('books');
 }
-// console.log(books);
-
-document.getElementById('objects').innerHTML = books.map(book => 
-    [book.title, book.author]).join('');
