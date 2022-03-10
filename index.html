@@ -5,9 +5,13 @@
             <link rel="stylesheet" href="styles.css">
         </head>
         <body>
-            <script tpye="text/javascript" src="main.js"></script>
+            
             <h1>Victor's Library</h1>
             <p>This is my library with all the books that I own.</p>
+            <p id="paragraph1"></p>
+            <p id="paragraph2"></p>
+            <p id="paragraph3"></p>
+            <p id="paragraph4"></p>
 
             <div>
                 <form>
@@ -34,7 +38,7 @@
                 <tr>
                     <td>Wild Goose Chase</td>
                     <td>Mark Batterson</td>
-                    <td><input type="checkbox"></td>
+                    <td><input type="checkbox" ></td>
                     <td><input type="checkbox"></td>
                 </tr>
                 <tr>
@@ -52,27 +56,5 @@
                 <input type="button" value="Submit" onclick="message()"/>
             </table>
         </body>
+        <script type="text/javascript" src="main.js"/></script>
 </html>
-
-<!-- 
-    - In order to display the array, I need to bring it through that method
-    - Pretty much it takes everything that it sees after the '=' sign and
-        - displays it.
-    - document is a global object
-    - getElementById() matches a HTML element with the same id that getElementById() contains
-    - (So when the HTML looks at the div ^ it will look and match the name 'books')
-    - Then it goes and fills that table with the mapping of the books
-    - join('')-> A string used to separate one element of an array from the next 
-        - in the resulting String. If omitted, the array elements are separated 
-        - with a comma.
-    - innerHTML returns the HTML inside of the getElementById
--->
-
-<script>
-    document.getElementById('books').innerHTML = books.map(book =>
-    `<tr>
-      <td>${book.title}</td>
-      <td>${book.author}</td>
-    </tr>`
-    ).join('');    
-</script>
