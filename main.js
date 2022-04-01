@@ -17,6 +17,12 @@ const books = [
     read: false,
     favorite: false,
   },
+  {
+    title: 'The Pursuit of God',
+    author: 'A. W. Tozer',
+    read: true,
+    favorite: true,
+  },
 ];
 
 function message() {
@@ -35,24 +41,76 @@ function message() {
 //     - with a comma.
 // - innerHTML returns the HTML inside of the getElementById
 
-document.getElementById('books').innerHTML = books
-  .map(
-    (book) =>
-      `
-      <tr>
-        <td>${book.title}</td>
-        <td>${book.author}</td>
-        <td><input type="checkbox">${book.read}</input></td>
-        <td>${book.favorite}</td>
-      </tr>`
-  )
-  .join('');
+books.forEach((element) => {
+  const tableRow = document.createElement('tr');
+  const tableData1 = document.createElement('td');
+  const tableData2 = document.createElement('td');
+  const tableData3 = document.createElement('td');
+  const tableData4 = document.createElement('td');
+  
+  tableData1.innerHTML = `${element.title}`
+  tableData2.innerHTML = `${element.author}`
+  tableData3.innerHTML = `${element.read}`
+  tableData4.innerHTML = `${element.favorite}`
 
-document.getElementById('paragraph1').innerHTML = '<div>Victor</div>';
-document.getElementById('paragraph1').innerHTML = 'Shcherbina';
+  tableRow.appendChild(tableData1);
+  tableRow.appendChild(tableData2);
+  tableRow.appendChild(tableData3);
+  tableRow.appendChild(tableData4);
+  // const theTitle = document.createTextNode(element.title);
+  // something.appendChild(listItem);
+  // tableData.appendChild(theTitle)
+  document.getElementById('testList').appendChild(tableRow);
+});
+
+// document.getElementById('books').innerHTML = books
+//   .map(
+//     (book) =>
+//       `
+//       <tr>
+//         <td>${book.title}</td>
+//         <td>${book.author}</td>
+//         <td><input type="checkbox">${book.read}</input></td>
+//         <td>${book.favorite}</td>
+//       </tr>`
+//   )
+//   .join('');
+
+//What is the difference between innerText and innerHTML?
+
+//ADD an element to the end of a doc
+// const yoText = document.createElement('p');
+// yoText.innerText = 'Yo what up';
+// document.body.appendChild(yoText);
+
+//ADD an element to the end of a element
+// const para = document.createElement('p'); // <- creating the HTML element
+// para.innerHTML = 'This is a paragraph'; // <- Adding to that element
+// document.getElementById('myDIV').appendChild(para); // <- Adding that 'child' to the doc
+
+//ADD a button
+// const button = document.createElement('button');
+// button.innerHTML = 'Press Me';
+// document.body.appendChild(button); // <- Gotta have the body in there
+
+//A list
+// function testStuff() {
+//   const theList = document.createElement('li');
+
+//   const listItem = document.createTextNode('Books');
+//   // const listItemTwo = document.createTextNode('Carrots');
+
+//   theList.appendChild(listItem);
+//   // theList.appendChild(listItemTwo);
+
+//   document.getElementById('testList').appendChild(theList);
+// }
+
+document.getElementById('paragraph1').innerHTML = 'Victor';
+document.getElementById('paragraph1').innerHTML = '<b>Shcherbina</b>';
 document.getElementById('paragraph3').innerHTML = 'is the author';
 document.getElementById('paragraph4').innerHTML = 'of this site';
 // document.createElement("testElement") = "Hello";
-const anElement = document.getElementsByTagName('p');
+// const anElement = document.getElementsByTagName('p');
 
-document.getElementById("paragraph3").innerHTML = 'This is a test, next word is: ' + anElement[0].innerHTML;
+// document.getElementById("paragraph3").innerHTML = 'This is a test, next word is: ' + anElement[0].innerHTML;
