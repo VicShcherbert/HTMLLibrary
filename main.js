@@ -43,33 +43,38 @@ function message() {
 
 books.forEach((element) => {
   const tableRow = document.createElement('tr');
-  const tableData1 = document.createElement('td');
-  const tableData2 = document.createElement('td');
-  const tableData3 = document.createElement('td');
-  const tableData4 = document.createElement('td');
+  const tableDataTitle = document.createElement('td');
+  const tableDataAuthor = document.createElement('td');
+  const tableDataRead = document.createElement('td');
+  const tableDataFav = document.createElement('td');
 
-  tableData1.innerHTML = element.title;
-  tableData2.innerHTML = element.author;
-  if (element.read === true) {
-    tableData3.innerHTML = '<input type="checkbox" checked=true/>';
-  } else {
-    tableData3.innerHTML = '<input type="checkbox"/>';
-  } 
-  if (element.favorite === true) {
-    tableData4.innerHTML = '<input type="checkbox" checked=true/>';
-  } else {
-    tableData4.innerHTML = '<input type="checkbox"/>';
+  tableDataTitle.innerText = element.title;
+  tableDataAuthor.innerText = element.author;
+  {
+    element.read
+      ? (tableDataRead.innerHTML = '<input type="checkbox" checked=true/>')
+      : (tableDataRead.innerHTML = '<input type="checkbox"/>');
   }
-  
-  // if(element.read !== true) {
-  //   tableData3.innerHTML = '<input type="checkbox" checked=false/>';
-  //   console.log('then Im here');
+  {
+    element.favorite
+      ? (tableDataFav.innerHTML = '<input type="checkbox" checked=true/>')
+      : (tableDataFav.innerHTML = '<input type="checkbox"/>');
+  }
+  // if (element.read === true) {
+  //   tableData3.innerHTML = '<input type="checkbox" checked=true/>';
+  // } else {
+  //   tableData3.innerHTML = '<input type="checkbox"/>';
+  // }
+  // if (element.favorite === true) {
+  //   tableData4.innerHTML = '<input type="checkbox" checked=true/>';
+  // } else {
+  //   tableData4.innerHTML = '<input type="checkbox"/>';
   // }
 
-  tableRow.appendChild(tableData1);
-  tableRow.appendChild(tableData2);
-  tableRow.appendChild(tableData3);
-  tableRow.appendChild(tableData4);
+  tableRow.appendChild(tableDataTitle);
+  tableRow.appendChild(tableDataAuthor);
+  tableRow.appendChild(tableDataRead);
+  tableRow.appendChild(tableDataFav);
 
   document.getElementById('testList').appendChild(tableRow);
 });
@@ -117,10 +122,10 @@ books.forEach((element) => {
 //   document.getElementById('testList').appendChild(theList);
 // }
 
-document.getElementById('paragraph1').innerHTML = 'Victor';
-document.getElementById('paragraph1').innerHTML = '<b>Shcherbina</b>';
-document.getElementById('paragraph3').innerHTML = 'is the author';
-document.getElementById('paragraph4').innerHTML = 'of this site';
+// document.getElementById('paragraph1').innerHTML = 'Victor';
+// document.getElementById('paragraph1').innerHTML = '<b>Shcherbina</b>';
+// document.getElementById('paragraph3').innerHTML = 'is the author';
+// document.getElementById('paragraph4').innerHTML = 'of this site';
 // document.createElement("testElement") = "Hello";
 // const anElement = document.getElementsByTagName('p');
 
