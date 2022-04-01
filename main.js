@@ -47,19 +47,30 @@ books.forEach((element) => {
   const tableData2 = document.createElement('td');
   const tableData3 = document.createElement('td');
   const tableData4 = document.createElement('td');
+
+  tableData1.innerHTML = element.title;
+  tableData2.innerHTML = element.author;
+  if (element.read === true) {
+    tableData3.innerHTML = '<input type="checkbox" checked=true/>';
+  } else {
+    tableData3.innerHTML = '<input type="checkbox"/>';
+  } 
+  if (element.favorite === true) {
+    tableData4.innerHTML = '<input type="checkbox" checked=true/>';
+  } else {
+    tableData4.innerHTML = '<input type="checkbox"/>';
+  }
   
-  tableData1.innerHTML = `${element.title}`
-  tableData2.innerHTML = `${element.author}`
-  tableData3.innerHTML = `${element.read}`
-  tableData4.innerHTML = `${element.favorite}`
+  // if(element.read !== true) {
+  //   tableData3.innerHTML = '<input type="checkbox" checked=false/>';
+  //   console.log('then Im here');
+  // }
 
   tableRow.appendChild(tableData1);
   tableRow.appendChild(tableData2);
   tableRow.appendChild(tableData3);
   tableRow.appendChild(tableData4);
-  // const theTitle = document.createTextNode(element.title);
-  // something.appendChild(listItem);
-  // tableData.appendChild(theTitle)
+
   document.getElementById('testList').appendChild(tableRow);
 });
 
@@ -70,7 +81,7 @@ books.forEach((element) => {
 //       <tr>
 //         <td>${book.title}</td>
 //         <td>${book.author}</td>
-//         <td><input type="checkbox">${book.read}</input></td>
+//         <td><input type="checkbox" checked=true>${book.read}</input></td>
 //         <td>${book.favorite}</td>
 //       </tr>`
 //   )
