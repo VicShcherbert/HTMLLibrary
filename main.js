@@ -50,26 +50,9 @@ books.forEach((element) => {
 
   tableDataTitle.innerText = element.title;
   tableDataAuthor.innerText = element.author;
-  {
-    element.read
-      ? (tableDataRead.innerHTML = '<input type="checkbox" checked=true/>')
-      : (tableDataRead.innerHTML = '<input type="checkbox"/>');
-  }
-  {
-    element.favorite
-      ? (tableDataFav.innerHTML = '<input type="checkbox" checked=true/>')
-      : (tableDataFav.innerHTML = '<input type="checkbox"/>');
-  }
-  // if (element.read === true) {
-  //   tableData3.innerHTML = '<input type="checkbox" checked=true/>';
-  // } else {
-  //   tableData3.innerHTML = '<input type="checkbox"/>';
-  // }
-  // if (element.favorite === true) {
-  //   tableData4.innerHTML = '<input type="checkbox" checked=true/>';
-  // } else {
-  //   tableData4.innerHTML = '<input type="checkbox"/>';
-  // }
+
+  tableDataRead.innerHTML = '<input type="checkbox" ' + (element.read ? 'checked=true' : '') + '/>';
+  tableDataFav.innerHTML = '<input type="checkbox" ' + (element.read ? 'checked=true' : '') + '/>';
 
   tableRow.appendChild(tableDataTitle);
   tableRow.appendChild(tableDataAuthor);
@@ -79,6 +62,17 @@ books.forEach((element) => {
   document.getElementById('testList').appendChild(tableRow);
 });
 
+const formElement = document.getElementById('form')
+// Attaches event handler to the specifyed element.
+formElement.addEventListener("submit", function(event){
+  event.preventDefault(); 
+  // Cancels the defаult behavior. If it's a link, the default is to open it. 
+  // This prevents it
+  console.log(formElement["title"].value);
+  console.log(formElement["author"].value);
+  console.log(formElement["read"].checked);
+  console.log(formElement["favorite"].checked);
+})
 // document.getElementById('books').innerHTML = books
 //   .map(
 //     (book) =>

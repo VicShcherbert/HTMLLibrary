@@ -14,16 +14,26 @@
             <p id="paragraph4"></p> -->
 
             <div>
-                <form>
+                <form id="form">
                     <h3>Input Books</h3>
                     <label for="title">Book Title</label><br/>
                     <input type="text" id="title" name="title"><br/>
                     <label for="author">Author</label><br/>
                     <input type="text" id="author" name="author"><br/>
+
+                    <label for="read">Read?</label>
+                    <input type="checkbox" id="read" name="read"><br/>
+                    
+                    <label for="favorite">Favorite</label>
+                    <input type="checkbox" id="favorite" name="favorite"><br/>
+                    
                     <input type="submit" value="Submit">
                 </form>
             </div>
+            <!-- Name attribute of the input has to be present -->
+            <!-- the 'for' attribute in label hooks up with the 'id' in input -->
 
+            
             <!-- <table id="books"></table> -->
             
             <!-- <div id="myDIV" style="padding:16px;background-color:rgb(155, 44, 44)">
