@@ -1,8 +1,10 @@
 let books = [];
-const check = window.localStorage.getItem('localBooksData');
+const localStorageBooks = JSON.parse(
+  window.localStorage.getItem('localBooksData')
+);
 
-if(check !== null){
-  books = JSON.parse(window.localStorage.getItem('localBooksData'));
+if (localStorageBooks !== null && Array.isArray(localStorageBooks)) {
+  books = localStorageBooks;
 }
 
 function message() {
@@ -14,6 +16,7 @@ const tableElement = document.getElementById('bookTable');
 
 function renderTable() {
   tableElement.innerHTML = ''; //On every call of renderTable(), the table gets cleared
+  console.log(books);
   books.forEach((element) => {
     const tableRow = document.createElement('tr');
     const tableDataTitle = document.createElement('td');
@@ -47,13 +50,13 @@ formElement.addEventListener('submit', function (event) {
   // Cancels the defаult behavior. If it's a link, the default is to open it.
   // This prevents it
   const values = {
+    id: Date.now(),
     title: formElement['title'].value,
     author: formElement['author'].value,
     read: formElement['read'].checked,
     favorite: formElement['favorite'].checked,
   };
   books.push(values);
-
   renderTable();
   window.localStorage.setItem('localBooksData', JSON.stringify(books));
 });
