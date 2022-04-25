@@ -16,7 +16,6 @@ const tableElement = document.getElementById('bookTable');
 
 function renderTable() {
   tableElement.innerHTML = ''; //On every call of renderTable(), the table gets cleared
-  console.log(books);
   books.forEach((element) => {
     const tableRow = document.createElement('tr');
     const tableDataTitle = document.createElement('td');
